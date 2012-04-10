@@ -1,0 +1,11 @@
+name: Measurement Tools
+version: 0.1
+description: The plugin helps you to find the center of an area.
+author: Raith Thomas
+
+main: at.rcraft.measurementtools.MeasurementTools
+
+commands:
+    opuser:
+        description: 'Definiert einen User als OP'
+        usage: 'Verwendung: /<command>'
