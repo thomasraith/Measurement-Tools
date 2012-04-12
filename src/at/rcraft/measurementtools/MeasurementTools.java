@@ -48,6 +48,21 @@ public class MeasurementTools extends JavaPlugin{
         catch (Exception e){
             System.out.println("[Measurement Tools] WorldEdit is not installed.");
         }
+        
+        // Metrics Plugin
+        if (getConfig().getBoolean("config.allowpluginmetrics")){
+            try {
+               Metrics metrics = new Metrics(this);
+               metrics.start();
+               System.out.println("[Measurement Tools] PluginMetrics enabled.");
+            } catch (Exception e) {
+                System.out.println("[Measurement Tools] Failed to activate PluginMetrics.");
+            }
+        }
+        else {
+            System.out.println("[Measurement Tools] PluginMetrics disabled.");
+        }
+        //Metrics Plugin
     
         PluginDescriptionFile descFile = this.getDescription();
         
@@ -129,20 +144,20 @@ public class MeasurementTools extends JavaPlugin{
                 {
                     lhelp = this.positions.get(i);
                     if (lhelp.user == ((Player)sender).getName()){
-                        x = Math.round((Math.abs(lhelp.x1-lhelp.x2)+1)/2);
-                        y = Math.round((Math.abs(lhelp.y1-lhelp.y2)+1)/2);
-                        z = Math.round((Math.abs(lhelp.z1-lhelp.z2)+1)/2);
+                        x = Math.round(Math.abs(lhelp.x1-lhelp.x2)+1);
+                        y = Math.round(Math.abs(lhelp.y1-lhelp.y2)+1);
+                        z = Math.round(Math.abs(lhelp.z1-lhelp.z2)+1);
                         
                         if (args[0].equalsIgnoreCase("x")){
-                            sender.sendMessage(ChatColor.BLUE+this.getConfig().getString("config.messaged.lengthx")+x + " Blocks");
+                            sender.sendMessage(ChatColor.BLUE+this.getConfig().getString("config.messages.lengthx")+" "+x + " Blocks");
                         }
                         else {
                             if (args[0].equalsIgnoreCase("y")){
-                                    sender.sendMessage(ChatColor.BLUE+this.getConfig().getString("config.messaged.lengthy")+y + " Blocks");
+                                    sender.sendMessage(ChatColor.BLUE+this.getConfig().getString("config.messages.lengthy")+" "+y + " Blocks");
                             }
                             else{
                                 if (args[0].equalsIgnoreCase("z")){
-                                    sender.sendMessage(ChatColor.BLUE+this.getConfig().getString("config.messaged.lengthz")+z + " Blocks");
+                                    sender.sendMessage(ChatColor.BLUE+this.getConfig().getString("config.messages.lengthz")+" "+z + " Blocks");
                                 }
                                 else{
                                      sender.sendMessage(ChatColor.RED+this.getConfig().getString("config.errormessages.syntaxerror")+" /length <axis>");
@@ -180,8 +195,7 @@ public class MeasurementTools extends JavaPlugin{
                    }
                 }
             }
-        }
-        
+        }      
         return true;
     }
     
@@ -215,6 +229,7 @@ public class MeasurementTools extends JavaPlugin{
        this.getConfig().addDefault("config.update.message.error", "Check for updates failed.");
        this.getConfig().addDefault("config.datavalues.centerblockid", 42);
        this.getConfig().addDefault("config.showselectmessage", true);
+       this.getConfig().addDefault("config.allowpluginmetrics", true);
        
        this.getConfig().options().copyDefaults(true);
        this.saveConfig();
