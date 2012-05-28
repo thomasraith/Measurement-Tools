@@ -1,5 +1,5 @@
 name: Measurement Tools
-version: 1.1
+version: 1.2
 description: The plugin helps you to find the center of an area.
 author: Raith Thomas
 webseite: http://www.rcraft.at
@@ -10,9 +10,9 @@ commands:
     center:
         description: 'Determines the center of an area'
         usage: 'Usage: /center'
-    mt:
+    mm:
         description: 'Measurement Tools Info'
-        usage: 'Usage: /mt'
+        usage: 'Usage: /mm'
     length: 
         description: 'Get the length of the area'
         usage: 'Usage: /length <axis>'

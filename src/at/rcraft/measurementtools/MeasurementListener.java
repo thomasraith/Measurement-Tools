@@ -61,12 +61,17 @@ class MeasurementListener implements Listener {
                     LocationUser l1 = new LocationUser(event.getPlayer().getName());  
                     plugin.positions.add(l1);
                     l1.setLocation2(l.getBlockX(), l.getBlockY(), l.getBlockZ(), l);
-                    event.getPlayer().sendMessage(ChatColor.BLUE + plugin.getConfig().getString("config.messages.position2")+" (" + l.getBlockX() + ", " + l.getBlockY() + ", " + l.getBlockZ() + ")");
+                    if(plugin.getConfig().getBoolean("config.showselectmessage")){
+                           event.getPlayer().sendMessage(ChatColor.BLUE + plugin.getConfig().getString("config.messages.position2")+" (" + l.getBlockX() + ", " + l.getBlockY() + ", " + l.getBlockZ() + ")");
+
+                    }
                 }
                 else 
                 {
                     help = 0;
-                    event.getPlayer().sendMessage(ChatColor.BLUE + plugin.getConfig().getString("config.messages.position2")+" (" + l.getBlockX() + ", " + l.getBlockY() + ", " + l.getBlockZ() + ") (" + count + " Blocks)");
+                    if(plugin.getConfig().getBoolean("config.showselectmessage")){
+                        event.getPlayer().sendMessage(ChatColor.BLUE + plugin.getConfig().getString("config.messages.position2")+" (" + l.getBlockX() + ", " + l.getBlockY() + ", " + l.getBlockZ() + ") (" + count + " Blocks)");
+                    }
                 }
 
                 
@@ -91,12 +96,17 @@ class MeasurementListener implements Listener {
                     LocationUser l1 = new LocationUser(event.getPlayer().getName());  
                     plugin.positions.add(l1);
                     l1.setLocation1(l.getBlockX(), l.getBlockY(), l.getBlockZ(), l);
+                    if(plugin.getConfig().getBoolean("config.showselectmessage")){
                     event.getPlayer().sendMessage(ChatColor.BLUE + plugin.getConfig().getString("config.messages.position1")+" (" + l.getBlockX() + ", " + l.getBlockY() + ", " + l.getBlockZ() + ")");
+                
+                    }
                 }
                 else 
                 {
                     help = 0;
-                    event.getPlayer().sendMessage(ChatColor.BLUE+ plugin.getConfig().getString("config.messages.position1")+" (" + l.getBlockX() + ", " + l.getBlockY() + ", " + l.getBlockZ() + ") (" + count + " Blocks)");
+                    if(plugin.getConfig().getBoolean("config.showselectmessage")){
+                        event.getPlayer().sendMessage(ChatColor.BLUE+ plugin.getConfig().getString("config.messages.position1")+" (" + l.getBlockX() + ", " + l.getBlockY() + ", " + l.getBlockZ() + ") (" + count + " Blocks)");
+                    }
                 }
                 
             }

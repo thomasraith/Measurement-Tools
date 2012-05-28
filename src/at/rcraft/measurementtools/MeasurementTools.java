@@ -170,13 +170,13 @@ public class MeasurementTools extends JavaPlugin{
                 sender.sendMessage(ChatColor.RED+this.getConfig().getString("config.errormessages.noareamarked"));
         }
         
-        if(cmd.getName().equalsIgnoreCase("mt")){
+        if(cmd.getName().equalsIgnoreCase("mm")){
             if (args.length == 0){
                 PluginDescriptionFile descFile = this.getDescription();
                 sender.sendMessage(ChatColor.GREEN+"-----------------------------------------------------");
                 sender.sendMessage(ChatColor.GREEN+descFile.getFullName() +" by "+descFile.getAuthors());
-                sender.sendMessage(ChatColor.GREEN+ "Type /mt help for help");
-                sender.sendMessage(ChatColor.GREEN+ "Type /mt perms for permissions");
+                sender.sendMessage(ChatColor.GREEN+ "Type /mm help for help");
+                sender.sendMessage(ChatColor.GREEN+ "Type /mm perms for permissions");
                 sender.sendMessage(ChatColor.GREEN+"-----------------------------------------------------");
             }
             else{
@@ -191,7 +191,7 @@ public class MeasurementTools extends JavaPlugin{
                         sender.sendMessage(ChatColor.GREEN+"Check Update by Join: measuretools.checkupdate");
                     }
                    else{
-                       sender.sendMessage(ChatColor.RED+this.getConfig().getString("config.errormessages.syntaxerror")+" /mt <command>");
+                       sender.sendMessage(ChatColor.RED+this.getConfig().getString("config.errormessages.syntaxerror")+" /mm <command>");
                    }
                 }
             }
