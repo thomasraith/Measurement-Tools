@@ -1,8 +1,8 @@
 name: Measurement Tools
-version: 1.2
+version: 3.0
 description: The plugin helps you to find the center of an area.
 author: Raith Thomas
-webseite: http://www.rcraft.at
+webseite: http://www.xtrsource.com
 
 main: at.rcraft.measurementtools.MeasurementTools
 
